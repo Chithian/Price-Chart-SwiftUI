@@ -20,6 +20,8 @@ struct HomeScreen: View {
     
     @State var plotWidth: CGFloat = 0
     
+    @State var isLineGraph:Bool = false
+    
     var body: some View {
         NavigationStack{
             VStack{
@@ -38,7 +40,6 @@ struct HomeScreen: View {
                         .pickerStyle(.segmented)
                         .padding(.leading,20)
                     }
-                     
                     
                     AnimationChart()
                 }
@@ -46,9 +47,11 @@ struct HomeScreen: View {
                     RoundedRectangle(cornerRadius: 10,style: .continuous)
                         .fill(.white.shadow(.drop(radius: 2)))
                 }
+                Toggle("line Graph", isOn: $isLineGraph)
+                    .padding(.top)
                 
             }
-        
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
             .navigationTitle("Crypto Currency")
@@ -68,7 +71,7 @@ struct HomeScreen: View {
             }
         }
     }
-     
+    
     @ViewBuilder
     func AnimationChart()->some View{
         
@@ -78,11 +81,33 @@ struct HomeScreen: View {
         Chart {
             ForEach(sample) {item in
                 //Bar Chart
-                BarMark(
-                    x: .value("Hours", item.hour, unit: .hour ),
-                    y: .value("Price", item.animate ? item.price : 0)
-                )
-                .foregroundStyle(Color.orange.gradient)
+                
+                if isLineGraph {
+                    LineMark(
+                        x: .value("Hours", item.hour, unit: .hour ),
+                        y: .value("Price", item.animate ? item.price : 0)
+                    )
+                    .foregroundStyle(Color.orange.gradient)
+                    .interpolationMethod(.catmullRom)
+                    
+                }else {
+                    BarMark(
+                        x: .value("Hours", item.hour, unit: .hour ),
+                        y: .value("Price", item.animate ? item.price : 0)
+                    )
+                    .foregroundStyle(Color.orange.gradient)
+                    
+                }
+                
+                if isLineGraph {
+                    AreaMark(
+                        x: .value("Hours", item.hour, unit: .hour ),
+                        y: .value("Price", item.animate ? item.price : 0)
+                    )
+                    .foregroundStyle(Color.orange.opacity(0.1).gradient)
+                    .interpolationMethod(.catmullRom)
+                    
+                }
                 
                 //MARK: Rule Mark for current
                 if let currentActiveItem, currentActiveItem.id == item.id {
@@ -91,18 +116,18 @@ struct HomeScreen: View {
                     //MARK: Dotted Style
                         .lineStyle(.init(lineWidth: 2, miterLimit: 2, dash: [5]))
                     
-                        //MARK: Setting in middle of each BAr
-                        .offset(x: (plotWidth / CGFloat(sample.count)) / 2)
+                    //MARK: Setting in middle of each BAr
+                        .offset(x: (plotWidth / CGFloat(sample_analytics.count)) / 2)
                         .annotation(position: .top) {
                             VStack(alignment: .leading, spacing: 6) {
                                 Text("Price")
                                     .font(.caption)
                                     .foregroundColor(Color.red)
-                                 
+                                
                             }
                         }
                 }
-                    
+                
             }
         }
         .foregroundColor(Color.orange)
@@ -121,7 +146,7 @@ struct HomeScreen: View {
                                     
                                     let calendar = Calendar.current
                                     let hour  = calendar.component(.hour, from: date)
-                                    print(hour)
+                                    
                                     
                                     if let currentItem = sample.first(where: {item in
                                         calendar.component(.hour, from: date) == hour
@@ -159,7 +184,7 @@ struct HomeScreen: View {
                 }
             }
         }
-
+        
     }
 }
 
