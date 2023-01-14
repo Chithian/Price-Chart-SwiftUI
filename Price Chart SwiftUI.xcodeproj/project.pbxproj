@@ -11,6 +11,8 @@
 		1571B3B2297247F9007F80E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1571B3B1297247F9007F80E8 /* ContentView.swift */; };
 		1571B3B4297247FF007F80E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1571B3B3297247FF007F80E8 /* Assets.xcassets */; };
 		1571B3B7297247FF007F80E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1571B3B6297247FF007F80E8 /* Preview Assets.xcassets */; };
+		1571B3C029724822007F80E8 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1571B3BF29724822007F80E8 /* HomeScreen.swift */; };
+		1571B3C2297248D8007F80E8 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1571B3C1297248D8007F80E8 /* PriceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		1571B3B1297247F9007F80E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1571B3B3297247FF007F80E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1571B3B6297247FF007F80E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1571B3BF29724822007F80E8 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		1571B3C1297248D8007F80E8 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 		1571B3AE297247F9007F80E8 /* Price Chart SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1571B3BE2972480F007F80E8 /* Model */,
+				1571B3BD29724806007F80E8 /* View */,
 				1571B3AF297247F9007F80E8 /* Price_Chart_SwiftUIApp.swift */,
 				1571B3B1297247F9007F80E8 /* ContentView.swift */,
 				1571B3B3297247FF007F80E8 /* Assets.xcassets */,
@@ -65,6 +71,22 @@
 				1571B3B6297247FF007F80E8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1571B3BD29724806007F80E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1571B3BF29724822007F80E8 /* HomeScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1571B3BE2972480F007F80E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1571B3C1297248D8007F80E8 /* PriceModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +161,8 @@
 			files = (
 				1571B3B2297247F9007F80E8 /* ContentView.swift in Sources */,
 				1571B3B0297247F9007F80E8 /* Price_Chart_SwiftUIApp.swift in Sources */,
+				1571B3C029724822007F80E8 /* HomeScreen.swift in Sources */,
+				1571B3C2297248D8007F80E8 /* PriceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
