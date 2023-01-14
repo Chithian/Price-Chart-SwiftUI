@@ -34,5 +34,17 @@ var sample_analytics: [Price] = [
     Price(hour: Date().updateHour(value: 7), price: 400),
     Price(hour: Date().updateHour(value: 8), price: 625),
     Price(hour: Date().updateHour(value: 9), price: 600),
+    Price(hour: Date().updateHour(value: 10), price: 400),
+    Price(hour: Date().updateHour(value: 11), price: 625),
+    Price(hour: Date().updateHour(value: 12), price: 600),
+    Price(hour: Date().updateHour(value: 13), price: 400),
+    Price(hour: Date().updateHour(value: 14), price: 625),
+    Price(hour: Date().updateHour(value: 15), price: 600),
+    Price(hour: Date().updateHour(value: 16), price: 400),
+    Price(hour: Date().updateHour(value: 17), price: 625),
+    Price(hour: Date().updateHour(value: 18), price: 600),
+    Price(hour: Date().updateHour(value: 19), price: 400),
+    Price(hour: Date().updateHour(value: 20), price: 625),
+    Price(hour: Date().updateHour(value: 21), price: 600),
 ]
 
